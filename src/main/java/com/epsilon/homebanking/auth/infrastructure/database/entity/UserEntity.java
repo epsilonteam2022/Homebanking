@@ -9,5 +9,5 @@ public class UserEntity {
 
   @Id
   @GeneratedValue
-                    private Long userId;
+  private Long userId;
 }
