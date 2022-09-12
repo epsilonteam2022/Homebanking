@@ -5,9 +5,9 @@ spring:
     name: ${DATABASE_NAME:epsilon}
     username: ${DATABASE_USER:root}
     password: ${DATABASE_PASSWORD:root}
-    driver-class-name: ${DATABASE_CLASS:com.mysql.jdbc.Driver}
+    driver-class-name: ${DATABASE_CLASS:com.mysql.cj.jdbc.Driver}
   jpa:
     database-platform: ${DATABASE_PLATFORM:org.hibernate.dialect.MySQL5InnoDBDialect}
-    show-sql: false
+    show-sql: true
     defer-datasource-initialization: false
     hibernate.ddl-auto: update
