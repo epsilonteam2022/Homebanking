@@ -97,7 +97,14 @@
         <groupId>com.rudikershaw.gitbuildhook</groupId>
         <version>3.0.0</version>
       </plugin>
-      <plugin>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<useFile>false</useFile>
+				</configuration>
+			</plugin>
+
+			<plugin>
         <artifactId>maven-checkstyle-plugin</artifactId>
         <configuration>
           <configLocation>etc/style/google_style.xml</configLocation>
