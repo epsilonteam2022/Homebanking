@@ -1,6 +1,6 @@
 package com.epsilon.homebanking.card.infrastructure.database.repository;
 
-import com.epsilon.homebanking.user.application.repository.CardRepository;
+import com.epsilon.homebanking.card.domain.repository.CardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
