@@ -22,6 +22,7 @@ public class AddressEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "ADDRESS_ID")
   private Long addressId;
 
   @Column(name = "ZIP_CODE")

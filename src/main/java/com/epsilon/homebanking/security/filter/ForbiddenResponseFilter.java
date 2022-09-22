@@ -1,0 +1,29 @@
+package com.epsilon.homebanking.security.filter;
+
+import com.epsilon.homebanking.user.infrastructure.rest.response.UserErrorResponse;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.IOException;
+import java.util.List;
+import javax.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+
+public class ForbiddenResponseFilter {
+
+  private static final int STATUS_CODE = HttpStatus.FORBIDDEN.value();
+  private static final String MESSAGE = "Access denied.";
+  private static final List<String> MORE_INFO = List.of(
+      "Access Denied. Contact your administrator.");
+
+  @Autowired
+  private ObjectMapper mapper;
+
+  protected void createCustomResponse(HttpServletResponse response) throws IOException {
+    response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+    response.setStatus(STATUS_CODE);
+
+    response.getWriter()
+        .write(mapper.writeValueAsString(new UserErrorResponse(STATUS_CODE, MESSAGE, MORE_INFO)));
+  }
+}

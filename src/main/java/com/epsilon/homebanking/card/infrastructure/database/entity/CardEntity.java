@@ -1,13 +1,16 @@
 package com.epsilon.homebanking.card.infrastructure.database.entity;
 
+import com.epsilon.homebanking.user.infrastructure.database.entity.UserEntity;
 import java.sql.Timestamp;
 
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Index;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -38,6 +41,9 @@ public class CardEntity {
 
   @Column(name = "CARD_STATUS")
   private boolean cardStatus;
+
+  @ManyToMany(mappedBy = "cards")
+  private Set<UserEntity> users;
 
   @Column(name = "CREATE_TIMESTAMP", updatable = false)
   @CreationTimestamp
