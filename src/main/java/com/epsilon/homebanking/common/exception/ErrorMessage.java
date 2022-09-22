@@ -1,4 +1,4 @@
-package com.epsilon.homebanking.exception;
+package com.epsilon.homebanking.common.exception;
 
 import java.text.MessageFormat;
 
