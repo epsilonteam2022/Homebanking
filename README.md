@@ -1,4 +1,20 @@
-# BANK
+# EPSILON HOMEBANK
+
+### PROJECT SETUP
+
+1. Download and install JDK 11.
+    1. You can use [SDKMAN](https://sdkman.io/install).
+    2. Verify your version using: `java --version`.
+2. Download and install [Apache Maven 3.8.4](https://maven.apache.org/download.cgi).
+    1. Verify your version using: `mvn --version`.
+3. Install [MySQL](https://dev.mysql.com/doc/refman/8.0/en/installing.html).
+    1. For local purposes, you can use H2 database. If you do it, ensure you do not commit it.
+4. Select the IDE that you want to use: IntelliJ, VS Code, Eclipse, etc.
+    1. Based on your selection, download the `*-style.xml` file for your IDE
+       from [Google Style Guide](https://github.com/google/styleguide).
+    2. Set up the downloaded file in the IDE preferences.
+    3. Ensure `import with '*'` option is configured as 99.
+5. Download and install [Postman](https://www.postman.com/downloads/).
 
 ### CODE STANDARDS
 
