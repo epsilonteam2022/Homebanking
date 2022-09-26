@@ -17,12 +17,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Index;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicUpdate;
@@ -30,10 +32,12 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-
+@Builder
 @Getter
 @Setter
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @DynamicUpdate
 @Table(name = "USER", indexes = {@Index(name = "IDX_USER_EMAIL", columnList = "USER_EMAIL")})
 public class UserEntity implements UserDetails {
@@ -59,12 +63,10 @@ public class UserEntity implements UserDetails {
   @Column(name = "PASSWORD", nullable = false)
   private String password;
 
-  @Column(name = "USER_CARDS")
-  @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-  @JoinTable(name = "USER_CARDS",
-      joinColumns = @JoinColumn(name = "USER_ID"),
-      inverseJoinColumns = @JoinColumn(name = "CARD_ID")
-  )
+  @Column(name = "USER_IMAGE")
+  private String imageUrl;
+
+  @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
   private Set<CardEntity> cards;
 
   @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)

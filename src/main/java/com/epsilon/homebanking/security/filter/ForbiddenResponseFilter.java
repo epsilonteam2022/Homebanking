@@ -1,6 +1,6 @@
 package com.epsilon.homebanking.security.filter;
 
-import com.epsilon.homebanking.user.infrastructure.rest.response.UserErrorResponse;
+import com.epsilon.homebanking.user.infrastructure.rest.response.ErrorResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.util.List;
@@ -24,6 +24,6 @@ public class ForbiddenResponseFilter {
     response.setStatus(STATUS_CODE);
 
     response.getWriter()
-        .write(mapper.writeValueAsString(new UserErrorResponse(STATUS_CODE, MESSAGE, MORE_INFO)));
+        .write(mapper.writeValueAsString(new ErrorResponse(STATUS_CODE, MESSAGE, MORE_INFO)));
   }
 }

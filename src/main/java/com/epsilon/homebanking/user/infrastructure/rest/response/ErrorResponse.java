@@ -11,11 +11,16 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class UserErrorResponse {
+public class ErrorResponse {
 
   private int statusCode;
   private String message;
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
   private List<String> moreInfo;
 
+  public ErrorResponse(int statusCode, String message, String moreInfo) {
+    this.statusCode = statusCode;
+    this.message = message;
+    this.moreInfo = List.of(moreInfo);
+  }
 }

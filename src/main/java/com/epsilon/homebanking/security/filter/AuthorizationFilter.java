@@ -55,5 +55,4 @@ public class AuthorizationFilter extends OncePerRequestFilter {
   private boolean isValid(String authorizationHeader) {
     return StringUtils.hasText(authorizationHeader) && authorizationHeader.startsWith(BEARER_PART);
   }
-
 }

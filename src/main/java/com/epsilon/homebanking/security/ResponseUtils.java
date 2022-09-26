@@ -1,6 +1,6 @@
 package com.epsilon.homebanking.security;
 
-import com.epsilon.homebanking.user.infrastructure.rest.response.UserErrorResponse;
+import com.epsilon.homebanking.user.infrastructure.rest.response.ErrorResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import javax.servlet.http.HttpServletResponse;
@@ -18,8 +18,8 @@ public class ResponseUtils {
     response.getWriter().write(mapper.writeValueAsString(getGenericUserErrorResponse()));
   }
 
-  private static UserErrorResponse getGenericUserErrorResponse() {
-    return UserErrorResponse.builder()
+  private static ErrorResponse getGenericUserErrorResponse() {
+    return ErrorResponse.builder()
         .statusCode(HttpStatus.FORBIDDEN.value())
         .message("Access denied. Please, try to login again or contact an admin.")
         .build();
