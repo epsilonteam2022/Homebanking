@@ -2,18 +2,18 @@ package com.epsilon.homebanking.security.delegate;
 
 import com.epsilon.homebanking.common.exception.ErrorMessage;
 import com.epsilon.homebanking.common.exception.InvalidCredentialsException;
-import com.epsilon.homebanking.user.domain.IAuthenticationManager;
+import com.epsilon.homebanking.user.application.delegate.AuthenticationManager;
 import com.epsilon.homebanking.user.domain.User;
 import lombok.AllArgsConstructor;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Service;
 
 @AllArgsConstructor
 @Service
-public class AuthenticationDelegate implements IAuthenticationManager {
+public class AuthenticationDelegate implements AuthenticationManager {
 
-  private final AuthenticationManager authenticationManager;
+  private final org.springframework.security.authentication.AuthenticationManager
+      authenticationManager;
 
   @Override
   public void authenticate(User user) {

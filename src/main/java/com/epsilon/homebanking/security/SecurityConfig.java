@@ -53,9 +53,9 @@ public class SecurityConfig {
         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
         .and()
         .authorizeRequests()
-        .antMatchers(HttpMethod.POST, "/register")
+        .antMatchers(HttpMethod.POST, "/auth/register")
         .permitAll()
-        .antMatchers(HttpMethod.POST, "/login")
+        .antMatchers(HttpMethod.POST, "/auth/login")
         .permitAll()
         .anyRequest()
         .authenticated()
@@ -68,5 +68,4 @@ public class SecurityConfig {
     http.headers().frameOptions().disable();
     return http.build();
   }
-
 }
