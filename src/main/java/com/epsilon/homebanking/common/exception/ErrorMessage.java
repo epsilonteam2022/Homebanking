@@ -4,7 +4,6 @@ import java.text.MessageFormat;
 
 public enum ErrorMessage {
   RECORD_NOT_FOUND("{0} not found."),
-  OPERATION_NOT_PERMITTED("Operation not permitted."),
   USER_ALREADY_EXISTS("Email is being used, try another!"),
   INVALID_CREDENTIALS("Invalid username or password.");
 
