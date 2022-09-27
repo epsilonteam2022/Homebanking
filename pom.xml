@@ -95,11 +95,13 @@
       <artifactId>spring-session-core</artifactId>
       <groupId>org.springframework.session</groupId>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
     <dependency>
-      <artifactId>mysql-connector-java</artifactId>
-      <groupId>mysql</groupId>
-      <scope>runtime</scope>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>42.4.0</version>
     </dependency>
+
     <dependency>
       <artifactId>lombok</artifactId>
       <groupId>org.projectlombok</groupId>
