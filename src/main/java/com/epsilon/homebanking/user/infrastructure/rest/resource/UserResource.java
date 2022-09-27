@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserResource {
 
   @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-  public String getFakeUser(){
+  public String getFakeUser() {
     return "Hola, soy un user";
   }
 }
