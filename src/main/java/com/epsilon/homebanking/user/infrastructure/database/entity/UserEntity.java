@@ -39,7 +39,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 @AllArgsConstructor
 @NoArgsConstructor
 @DynamicUpdate
-@Table(name = "USER", indexes = {@Index(name = "IDX_USER_EMAIL", columnList = "USER_EMAIL")})
+@Table(name = "USERS", indexes = {@Index(name = "IDX_USER_EMAIL", columnList = "USER_EMAIL")})
 public class UserEntity implements UserDetails {
 
   @Id
