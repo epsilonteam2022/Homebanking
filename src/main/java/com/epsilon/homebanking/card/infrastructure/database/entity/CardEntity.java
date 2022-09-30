@@ -2,6 +2,7 @@ package com.epsilon.homebanking.card.infrastructure.database.entity;
 
 import com.epsilon.homebanking.user.infrastructure.database.entity.UserEntity;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,16 +13,18 @@ import javax.persistence.Index;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
 import lombok.Builder;
 import lombok.Getter;
+
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicUpdate;
 
-@Builder
 @Entity
 @Getter
 @Setter
+@Builder
 @DynamicUpdate
 @Table(name = "CARDS", indexes = {
     @Index(name = "IDX_CARD_BALANCE", columnList = "CARD_BALANCE")})
@@ -44,6 +47,9 @@ public class CardEntity {
   @Column(name = "CARD_STATUS")
   private boolean cardStatus;
 
+  @Column(name = "DATE_EXPIRATION")
+  private LocalDate dateOfExpiration;
+
   @ManyToOne
   @JoinColumn(name = "USER_ID")
   private UserEntity user;
@@ -51,4 +57,18 @@ public class CardEntity {
   @Column(name = "CREATE_TIMESTAMP", updatable = false)
   @CreationTimestamp
   private Timestamp createTimestamp;
+
+  public CardEntity(Long cardId, Long cardNumber, Integer cardPin, Long cardBalance, boolean cardStatus, LocalDate dateOfExpiration, UserEntity user, Timestamp createTimestamp) {
+    this.cardId = cardId;
+    this.cardNumber = cardNumber;
+    this.cardPin = cardPin;
+    this.cardBalance = cardBalance;
+    this.cardStatus = cardStatus;
+    this.dateOfExpiration = dateOfExpiration;
+    this.user = user;
+    this.createTimestamp = createTimestamp;
+  }
+
+  public CardEntity() {
+  }
 }
