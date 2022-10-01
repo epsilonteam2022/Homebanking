@@ -36,7 +36,7 @@ public class CardEntity {
   private Long cardId;
 
   @Column(name = "CARD_NUMBER", unique = true)
-  private Long cardNumber;
+  private String cardNumber;
 
   @Column(name = "CARD_PIN", unique = true, updatable = false)
   private Integer cardPin;
@@ -47,7 +47,7 @@ public class CardEntity {
   @Column(name = "CARD_STATUS")
   private boolean cardStatus;
 
-  @Column(name = "DATE_EXPIRATION")
+  @Column(name = "DATE_EXPIRATION", updatable = false)
   private LocalDate dateOfExpiration;
 
   @ManyToOne
@@ -58,7 +58,7 @@ public class CardEntity {
   @CreationTimestamp
   private Timestamp createTimestamp;
 
-  public CardEntity(Long cardId, Long cardNumber, Integer cardPin, Long cardBalance, boolean cardStatus, LocalDate dateOfExpiration, UserEntity user, Timestamp createTimestamp) {
+  public CardEntity(Long cardId, String cardNumber, Integer cardPin, Long cardBalance, boolean cardStatus, LocalDate dateOfExpiration, UserEntity user, Timestamp createTimestamp) {
     this.cardId = cardId;
     this.cardNumber = cardNumber;
     this.cardPin = cardPin;

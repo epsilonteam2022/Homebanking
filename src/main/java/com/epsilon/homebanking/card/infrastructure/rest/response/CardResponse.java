@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @Builder
 public class CardResponse {
 
-    private Long cardNumber;
+    private String cardNumber;
 
     private Integer cardPin;
 

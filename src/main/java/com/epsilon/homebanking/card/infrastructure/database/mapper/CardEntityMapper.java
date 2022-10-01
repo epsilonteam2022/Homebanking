@@ -3,8 +3,9 @@ package com.epsilon.homebanking.card.infrastructure.database.mapper;
 import com.epsilon.homebanking.card.domain.Card;
 import com.epsilon.homebanking.card.infrastructure.database.entity.CardEntity;
 import com.epsilon.homebanking.common.mapper.EntityBaseMapper;
-import com.epsilon.homebanking.user.infrastructure.database.entity.UserEntity;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CardEntityMapper extends EntityBaseMapper<CardEntity, Card> {
     @Override
     public Card toDomain(CardEntity entity, Object... args) {
