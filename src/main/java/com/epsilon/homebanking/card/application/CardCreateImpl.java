@@ -17,7 +17,12 @@ public class CardCreateImpl implements CreateCard {
     }
 
     @Override
-    public Card create(Card card,Long id) {
-        return cardRepository.create(card,id);
+    public Card create(Card card) {
+        return cardRepository.create(card);
+    }
+
+    @Override
+    public Card add(Long idCard, Long idUser) {
+        return cardRepository.add(idCard,idUser);
     }
 }

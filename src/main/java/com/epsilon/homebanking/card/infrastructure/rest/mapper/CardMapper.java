@@ -4,8 +4,9 @@ import com.epsilon.homebanking.card.domain.Card;
 import com.epsilon.homebanking.card.infrastructure.rest.request.CardRequest;
 import com.epsilon.homebanking.card.infrastructure.rest.response.CardResponse;
 import com.epsilon.homebanking.common.mapper.RestBaseMapper;
+import org.springframework.stereotype.Component;
 
-
+@Component
 public class CardMapper extends RestBaseMapper<CardRequest, Card, CardResponse> {
     @Override
     public Card toDomain(CardRequest request, Object... args) {

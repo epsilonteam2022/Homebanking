@@ -16,7 +16,7 @@ import java.time.LocalDate;
 @Getter
 public class Card {
   private Long cardId;
-  private Long cardNumber;
+  private String cardNumber;
   private Integer cardPin;
   private LocalDate dateOfExpiration;
   private Long cardBalance;
