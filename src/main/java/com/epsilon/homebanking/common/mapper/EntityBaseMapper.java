@@ -1,8 +1,6 @@
 package com.epsilon.homebanking.common.mapper;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public abstract class EntityBaseMapper<E, D> {
@@ -37,5 +35,11 @@ public abstract class EntityBaseMapper<E, D> {
       return null;
     }
     return new HashSet<>(toDomain(entity, args));
+  }
+  public Set<E> toSet(Optional<D> domain, Object... args) {
+    if (domain == null) {
+      return null;
+    }
+    return new HashSet<>(toEntity(domain, args));
   }
 }

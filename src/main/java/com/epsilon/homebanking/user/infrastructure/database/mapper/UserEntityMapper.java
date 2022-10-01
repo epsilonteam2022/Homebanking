@@ -1,5 +1,6 @@
 package com.epsilon.homebanking.user.infrastructure.database.mapper;
 
+import com.epsilon.homebanking.card.infrastructure.database.mapper.CardEntityMapper;
 import com.epsilon.homebanking.common.mapper.EntityBaseMapper;
 import com.epsilon.homebanking.security.common.JwtUtils;
 import com.epsilon.homebanking.user.domain.User;

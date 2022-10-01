@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,8 +16,9 @@ import lombok.Setter;
 @Getter
 public class Card {
   private Long cardId;
-  private Long cardNumber;
+  private String cardNumber;
   private Integer cardPin;
+  private LocalDate dateOfExpiration;
   private Long cardBalance;
   private User user;
   private boolean cardStatus;

@@ -25,47 +25,51 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-  private final AuthorizationFilter authorizationFilter;
+    private final AuthorizationFilter authorizationFilter;
 
-  @Bean
-  public AccessDeniedHandler accessDeniedHandler() {
-    return new CustomAccessDeniedHandler();
-  }
+    @Bean
+    public AccessDeniedHandler accessDeniedHandler() {
+        return new CustomAccessDeniedHandler();
+    }
 
-  @Bean
-  public AuthenticationEntryPoint authenticationEntryPoint() {
-    return new CustomAuthenticationEntryPoint();
-  }
+    @Bean
+    public AuthenticationEntryPoint authenticationEntryPoint() {
+        return new CustomAuthenticationEntryPoint();
+    }
 
-  @Bean
-  AuthenticationManager authenticationManager(
-      AuthenticationConfiguration authenticationConfiguration) throws Exception {
-    return authenticationConfiguration.getAuthenticationManager();
-  }
+    @Bean
+    AuthenticationManager authenticationManager(
+            AuthenticationConfiguration authenticationConfiguration) throws Exception {
+        return authenticationConfiguration.getAuthenticationManager();
+    }
 
-  @Bean
-  public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-    http.csrf()
-        .disable()
-        .cors()
-        .and()
-        .sessionManagement()
-        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-        .and()
-        .authorizeRequests()
-        .antMatchers(HttpMethod.POST, "/auth/register")
-        .permitAll()
-        .antMatchers(HttpMethod.POST, "/auth/login")
-        .permitAll()
-        .anyRequest()
-        .authenticated()
-        .and()
-        .addFilterBefore(authorizationFilter, UsernamePasswordAuthenticationFilter.class)
-        .exceptionHandling()
-        .accessDeniedHandler(accessDeniedHandler())
-        .authenticationEntryPoint(authenticationEntryPoint());
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http.csrf()
+                .disable()
+                .cors()
+                .and()
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+                .authorizeRequests()
+                .antMatchers(HttpMethod.POST, "/auth/register")
+                .permitAll()
+                .antMatchers(HttpMethod.POST, "/auth/login")
+                .permitAll()
+                .antMatchers("/cards")
+                .permitAll()
+                .antMatchers("/cards/**")
+                .permitAll()
+                .anyRequest()
+                .authenticated()
+                .and()
+                .addFilterBefore(authorizationFilter, UsernamePasswordAuthenticationFilter.class)
+                .exceptionHandling()
+                .accessDeniedHandler(accessDeniedHandler())
+                .authenticationEntryPoint(authenticationEntryPoint());
 
-    http.headers().frameOptions().disable();
-    return http.build();
-  }
+        http.headers().frameOptions().disable();
+        return http.build();
+    }
 }
